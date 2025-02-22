@@ -20,7 +20,8 @@ function getUserAgentHash(userAgent) {
 // Fetch the cookie (hdntl token) using M3U8 URL generation logic
 async function fetchCookie(userAgent) {
     // Generate cache file path based on user-agent hash
-    const cacheFile = path.join(CACHE_DIR, `cookie_z5_${getUserAgentHash(userAgent)}.tmp`);
+    //const cacheFile = path.join(CACHE_DIR, `cookie_z5_${getUserAgentHash(userAgent)}.tmp`);
+    const cacheFile = "/tmp/cookie_z5_$UAhash.tmp";
 
     // Check if the cache file exists and is valid (not expired)
     if (fs.existsSync(cacheFile) && (Date.now() - fs.statSync(cacheFile).mtimeMs < CACHE_EXPIRY * 1000)) {
